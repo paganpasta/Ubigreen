@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UbiGreen</string>
+    <string name="service_label">UbiGreen</string>
+    <string name="description">This is the Stepgreen Wallpaper Service</string>
+    <string name="livewallpaper_settings">Ubigreen Wallpaper Settings</string>
+    <string-array name="AvailWallpaper">
+    </string-array>
+    <string-array name="AvailWallpaperVal">
+    </string-array>
+</resources>

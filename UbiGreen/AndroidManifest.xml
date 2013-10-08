@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+	package="com.stepgreen.ubigreen" android:versionCode="1"
+	android:versionName="1.0" >
+	<uses-sdk android:minSdkVersion="8" />
+	<uses-permission android:name="android.permission.READ_OWNER_DATA"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+	<application android:icon="@drawable/stepgreen"
+		android:label="@string/app_name" >
+
+		<service android:label="@string/service_label" android:name=".UbiGreenWallpaperService"
+			android:permission="android.permission.BIND_WALLPAPER" android:icon="@drawable/stepgreen" >
+			<intent-filter>
+				<action android:name="android.service.wallpaper.WallpaperService" />
+			</intent-filter>
+			<meta-data android:name="android.service.wallpaper" 
+				android:resource="@xml/live_wallpaper" />
+		</service>
+
+		<service android:name=".BaseService">
+			<intent-filter>
+				<action android:name="com.stepgreen.ubigreen.BaseService" />
+			</intent-filter>
+		</service>
+
+
+		<service android:name=".DetectionActivity">
+			<intent-filter>
+				<action android:name="com.stepgreen.ubigreen.DetectionActivity" />
+			</intent-filter>
+		</service>
+		<activity android:label="@string/livewallpaper_settings"
+			android:name=".Ubigreen_settings" android:theme="@android:style/Theme.Light.WallpaperSettings"
+			android:exported="true" android:icon="@drawable/stepgreen">
+		</activity>
+		
+		
+		   <activity android:name=".SignPostAndroidActivity"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".OAuthFlowApp" 
+            	android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="PrepareRequestTokenActivity" android:launchMode="singleTask">>
+        
+        
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="x-oauthflow" android:host="callback" />
+            </intent-filter>
+        </activity>
+		
+        <activity android:name=".xmlpuller" >
+        </activity>		
+	</application>
+	<uses-feature android:name="android.software.live_wallpaper"
+		android:required="true" />
+</manifest>
